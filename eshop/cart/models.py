@@ -3,10 +3,11 @@ from items.models import Item
 from personalpage.models import CustomUser
 
 class Cart(models.Model):
-    user = models.ForeignKey(CustomUser, verbose_name="Пользователь")
+    user = models.ForeignKey(CustomUser, verbose_name="Пользователь", on_delete=models.CASCADE)
     pass
-class Order(): 
-    user = models.ForeignKey(CustomUser, verbose_name="Пользователь")
+
+class Order(models.Model): 
+    user = models.ForeignKey(CustomUser, verbose_name="Пользователь", on_delete=models.CASCADE)
     pass
 
 class BaseItem(models.Model):
