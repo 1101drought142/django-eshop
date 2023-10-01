@@ -1,8 +1,12 @@
 from django.db import models
 from items.models import Item
-
+from personalpage.models import CustomUser
 
 class Cart(models.Model):
+    user = models.ForeignKey(CustomUser, verbose_name="Пользователь")
+    pass
+class Order(): 
+    user = models.ForeignKey(CustomUser, verbose_name="Пользователь")
     pass
 
 class BaseItem(models.Model):
@@ -13,8 +17,9 @@ class BaseItem(models.Model):
         abstract = True 
 
 class CartItem(BaseItem):
+    cart = models.ForeignKey(Cart, verbose_name="Корзина", on_delete=models.CASCADE)
     pass
 
-
-class Order(): 
+class OrderItem(BaseItem):
+    order__save = models.ForeignKey(Order, verbose_name="Заказ", on_delete=models.CASCADE)
     pass
