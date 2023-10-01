@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-cfz-v!w%wxoae(nr#msfd6ord4xp=&hs*ga#!o7(o32jjiqoc@
 DEBUG = True
 
 ALLOWED_HOSTS = []
+CART_SESSION_ID = 'cart'
 
 
 # Application definition
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'items',
     'mail',
     'personalpage',
+    'textpages',
 ]
 
 MIDDLEWARE = [
