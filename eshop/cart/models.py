@@ -12,6 +12,9 @@ class BaseItem(models.Model):
     class Meta:
         abstract = True 
 
-
 class CartItem(BaseItem):
+    pass
+
+
+class Order(): 
     pass
