@@ -1,5 +1,5 @@
 from django.db import models
-
+from utils.models import BaseSeo
 #Custom classes
 class Color(models.Model):
     name = models.CharField(max_length=255, verbose_name='Название цвета')
@@ -27,7 +27,7 @@ class FlowerType(models.Model):
         verbose_name_plural = 'Типы цветков'
         ordering = ['name']
 
-class Category(models.Model):
+class Category(BaseSeo):
     name = models.CharField(max_length=255, verbose_name='Название категории')
     slug = models.SlugField(max_length=255, verbose_name='URL категории')
     parent = models.ForeignKey('self', blank=True, null=True, related_name='children', verbose_name='Родительская категория', on_delete=models.CASCADE)
@@ -40,7 +40,7 @@ class Category(models.Model):
         verbose_name_plural = 'Категории'
         ordering = ['name']
 
-class Item(models.Model):
+class Item(BaseSeo):
     name = models.CharField(max_length=255, verbose_name='Название товара')
     slug = models.SlugField(max_length=255, verbose_name='URL товара')
     category = models.ForeignKey(Category, verbose_name='Категория', blank=True, null=True, on_delete=models.CASCADE)
