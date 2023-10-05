@@ -6,6 +6,9 @@ class ModelCart(models.Model):
     user = models.ForeignKey(CustomUser, verbose_name="Пользователь", on_delete=models.CASCADE)
 
     def save_to_db(self):
+        
+
+
         pass
     pass
 

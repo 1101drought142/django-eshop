@@ -25,6 +25,8 @@ class Cart():
             cart_item = CartItem(cart=self.cart, quantity=self.cart[cart_item]['quantity'])
             cart_items.append(cart_item)
         return cart_items
+    
+
 
     def save(self):
         self.session[settings.CART_SESSION_ID] = self.cart
